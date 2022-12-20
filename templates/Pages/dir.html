@@ -1,0 +1,19 @@
+{% extends "wrapper.html" %}
+{% block value %}
+{% if dirs %}
+<h1>Папки</h1>
+<ul>
+  {% for dir in sort(dirs) %}
+    <li><a href="{{ dir.link }}"> {{ dir.name }} </a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% if default(files, false) %}
+<h1>Файлы</h1>
+<ul>
+  {% for file in sort(files) %}
+    <li><a href="{{ file.link }}"> {{ file.name }} </a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
